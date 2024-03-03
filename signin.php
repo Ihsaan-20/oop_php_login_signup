@@ -21,47 +21,40 @@
     </header>
     <main>
         <div class="container">
+            
+
             <div class="row">
-                <div class="col-lg-10 mx-auto">
-
-                    <?php
-                    if (isset($_GET['success'])) {
-                        $successMessage = htmlspecialchars($_GET['success']); ?>
-
-                        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-
-                            <strong><?= $successMessage ?></strong> 
-                        </div>
-
-                    <?php
-                    }
-                    ?>
+                <!-- login card -->
+                <div class="col-lg-8 mx-auto">
                     <div class="card mt-3">
-                        <div class="card-body">
-
-                            <div class="main d-flex justify-content-between">
-                                <div class="heading">
-                                    <h3>Wellcome to Home Page</h3>
-                                </div>
-                                <div class="button">
-                                    
-                                    <a href="signup.php" class="btn btn-primary">Sign up</a>
-                                    <a href="signin.php" class="btn btn-success">Sign in</a>
-                                   
-                                </div>
-                            </div>
+                    <div class="card-header">
+                            <h3>Sign In</h3>
                         </div>
-                    </div>
-
-                    <div class="card mt-3">
                         <div class="card-body">
-                            <b>Lorem</b> ipsum, dolor sit amet consectetur adipisicing elit. Labore veritatis dolorem eligendi nulla laboriosam magnam iste fugit voluptate aliquam molestias obcaecati corrupti fugiat explicabo culpa non minima omnis magni tenetur harum, a repudiandae? Ipsum doloribus iste asperiores, perspiciatis amet ipsa, quam corporis labore libero repellendus ex quas praesentium alias? Id.
+                            <form action="">
+                                <div class="mb-3">
+                                    <label for="">Username</label>
+                                    <input type="text" name="user_name" class="form-control" placeholder="username...">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="">Password</label>
+                                    <input type="password" name="user_pw" class="form-control" placeholder="password...">
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <button type="submit" name="signin" class="btn btn-success px-5">Sign in</button>
+                                    <a href="index.php" class="btn btn-secondary">Go back</a>
+                                </div>
+                               
+
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
+           
         </div>
     </main>
     <footer>

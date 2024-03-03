@@ -17,8 +17,6 @@ class signupController extends signUp
 
     public function signUpUser()
     {
-        //error handlers
-        //empty input fields error
         if($this->emptyInput() == false)
         {
             $error = "empty input fields";
