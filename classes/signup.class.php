@@ -7,7 +7,7 @@ class signUp extends DatabaseController {
     {
         $stmt = $this->connect()->prepare('INSERT INTO users (user_name, user_email, user_pw) VALUES (?,?,?)');
         if (!$stmt) {
-            header('location: ../index.php?error=stmtfailed');
+            header('location: ../signup.php?error=stmtfailed');
             exit();
         }
 
@@ -16,7 +16,7 @@ class signUp extends DatabaseController {
 
         if (!$stmt->execute()) {
             $stmt->close();
-            header('location: ../index.php?error=stmtfailed');
+            header('location: ../signup.php?error=stmtfailed');
             exit();
         }
         $stmt->close();
@@ -25,26 +25,29 @@ class signUp extends DatabaseController {
     protected function checkUser($user_name, $user_email)
     {
         $stmt = $this->connect()->prepare('SELECT user_name FROM users WHERE user_name = ? OR user_email = ?');
-        $stmt->execute(array($user_name, $user_email));
+        $stmt->bind_param('ss', $user_name, $user_email);
 
-        if(!$stmt->execute(array($user_name, $user_email)))
-        {
-            $stmt = null;
-            header('location: ../index.php?error=stmtfailed');
+        if (!$stmt->execute()) {
+            $stmt->close();
+            header('location: ../signup.php?error=stmtfailed');
             exit();
         }
-        $resultCheck ;
+
+        $resultCheck;
+
+        $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            $resultCheck = false; 
+            $resultCheck = false;
         } else {
-            $resultCheck = true; 
+            $resultCheck = true;
         }
 
-        return $resultCheck;
-
         $stmt->close();
+
+        return $resultCheck;
     }
+
 
 }// main class end here;
 

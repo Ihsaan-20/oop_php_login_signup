@@ -12,7 +12,7 @@ if (isset($_POST['signup'])) {
 
 
     if ($user_pw !== $user_pw_confirm) {
-        header("location: ../index.php?error=passwordmismatch");
+        header("location: ../signup.php?error=passwordmismatch");
         exit();
     }
 
@@ -29,7 +29,7 @@ if (isset($_POST['signup'])) {
         header("location: ../index.php?error=none&success=$success");
     } catch (Exception $e) {
         $error = $e->getMessage();
-        header("location: ../index.php?error=$error");
+        header("location: ../signup.php?error=$error");
     }
     
 }

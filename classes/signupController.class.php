@@ -20,35 +20,35 @@ class signupController extends signUp
         if($this->emptyInput() == false)
         {
             $error = "empty input fields";
-            header("location: ../index.php?error=$error");
+            header("location: ../signup.php?error=$error");
             exit();
         }
 
         if($this->invalidUserName() == false)
         {
             $error = "not a valid user name";
-            header("location: ../index.php?error=$error");
+            header("location: ../signup.php?error=$error");
             exit();
         }
 
         if($this->invalidUserEmail() == false)
         {
             $error = "not a valid user email";
-            header("location: ../index.php?error=$error");
+            header("location: ../signup.php?error=$error");
             exit();
         }
 
         if($this->matchPassword() == false)
         {
             $error = "password not matched!";
-            header("location: ../index.php?error=$error");
+            header("location: ../signup.php?error=$error");
             exit();
         }
 
         if($this->userExistOrNot() == false)
         {
             $error = "user name/email already exists";
-            header("location: ../index.php?error=$error");
+            header("location: ../signup.php?error=$error");
             exit();
         }
 
